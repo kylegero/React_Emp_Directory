@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const FilterInput = ({ users, updateUsers }) => {
+const Sorting = ({ users, updateUsers }) => {
   const [inputValue, updateInput] = useState("")
   useEffect(() => {
     const filteredUsers =
@@ -19,4 +19,4 @@ const FilterInput = ({ users, updateUsers }) => {
   );
 };
 
-export default FilterInput;
+export default Sorting;

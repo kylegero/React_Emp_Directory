@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FilterInput from "./FilterInput";
+import Sorting from "./Sorting";
 import Table from "./Table";
 import { getUsers } from "./API";
 import "./App.css";
@@ -17,14 +17,14 @@ function App() {
       <h1>Employee Directory</h1>
       <p>
         To sort employees by first name, begin entering a first name below
+        <br></br>
+        If you'd like to sort employees alphabetically by first name, give the "First" a click
       </p>
-      <FilterInput users={initialUsers} updateUsers={updateUsersToRender} />
+      <Sorting users={initialUsers} updateUsers={updateUsersToRender} />
       <Table users={usersToRender} />
     </div>
   );
 }
-
-//test
 
 // function App() {
 //   return (
