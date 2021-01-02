@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-const Sorting = ({ users, updateUsers }) => {
+const Sorting = ({ emps, updateEmps }) => {
   const [inputValue, updateInput] = useState("")
   useEffect(() => {
-    const filteredUsers =
+    const filteredEmps =
       inputValue === ""
-        ? users
-        : users.filter(
+        ? emps
+        : emps.filter(
             ({ name: { first } }) =>
               first.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0
           );
-
-    updateUsers(filteredUsers);
-  }, [inputValue, users]);
+    updateEmps(filteredEmps);
+  }, [inputValue, emps]);
 
   return (
     <input value={inputValue} onChange={e => updateInput(e.target.value)} />

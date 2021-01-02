@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const Table = ({ users }) => {
-  const [sortedUsers, updateSortedUsers] = useState([]);
-
-  useEffect(() => updateSortedUsers(users), [users]);
-
+const Table = ({ emps }) => {
+  const [sortedEmps, updateSortedEmps] = useState([]);
+  useEffect(() => updateSortedEmps(emps), [emps]);
   return (
     <div>
       <table className="table">
@@ -14,22 +12,19 @@ const Table = ({ users }) => {
             <th
               scope="col"
               onClick={() => {
-                const usersCopy = [...users];
-                const updateSort = usersCopy.sort((a, b) => {
+                const empsCopy = [...emps];
+                const updateSort = empsCopy.sort((a, b) => {
                   const nameA = a.name.first;
                   const nameB = b.name.first;
-
                   if (nameA < nameB) {
                     return -1;
                   }
                   if (nameA > nameB) {
                     return 1;
                   }
-
                   return 0;
                 });
-
-                updateSortedUsers(updateSort);
+                updateSortedEmps(updateSort);
               }}
             >
               First
@@ -47,7 +42,7 @@ const Table = ({ users }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedUsers.map(
+          {sortedEmps.map(
             ({
               location: { city, state, country, postcode },
               picture: { thumbnail },
@@ -72,7 +67,6 @@ const Table = ({ users }) => {
                 <td>
                   <img src={thumbnail} />
                 </td>
-
                 <td></td>
               </tr>
             )
@@ -82,5 +76,4 @@ const Table = ({ users }) => {
     </div>
   );
 };
-
 export default Table;

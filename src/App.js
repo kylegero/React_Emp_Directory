@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Sorting from "./Sorting";
 import Table from "./Table";
-import { getUsers } from "./API";
+import { getEmps } from "./API";
 import "./App.css";
 
 function App() {
-  const [initialUsers, updateAvailableUsers] = useState([]);
-  const [usersToRender, updateUsersToRender] = useState([]);
+  const [initialEmps, updateAvailableEmps] = useState([]);
+  const [empsToRender, updateEmpsToRender] = useState([]);
 
   useEffect(() => {
-    getUsers().then(({ data: { results } }) => updateAvailableUsers(results));
+    getEmps().then(({ data: { results } }) => updateAvailableEmps(results));
   }, []);
 
   return (
@@ -20,8 +20,8 @@ function App() {
         <br></br>
         If you'd like to sort employees alphabetically by first name, give the "First" a click
       </p>
-      <Sorting users={initialUsers} updateUsers={updateUsersToRender} />
-      <Table users={usersToRender} />
+      <Sorting emps={initialEmps} updateEmps={updateEmpsToRender} />
+      <Table emps={empsToRender} />
     </div>
   );
 }
